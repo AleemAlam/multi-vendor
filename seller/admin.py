@@ -1,9 +1,10 @@
 from django.contrib import admin
-from .models import Item, Category
+from .models import Item, Category, SellerPhone
 from django.contrib.auth.models import Group
 from django.contrib.auth.models import User
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from .forms import ItemForm
+from customer.models import OrderGroup, OrderItem, CustomerPhone, Address, RatingDetail
 
 # Register your models here.
 
@@ -81,4 +82,10 @@ class UserAdmin(BaseUserAdmin):
 admin.site.unregister(User)
 admin.site.register(User, UserAdmin)
 admin.site.register(Item, ItemAdmin)
+admin.site.register(SellerPhone)
 admin.site.register(Category, CategoryAdmin)
+admin.site.register(OrderGroup)
+admin.site.register(OrderItem)
+admin.site.register(CustomerPhone)
+admin.site.register(Address)
+admin.site.register(RatingDetail)

@@ -7,6 +7,19 @@ ITEM_STATUS = [
     ('active', 'active')
 ]
 
+
+User._meta.get_field('email')._unique = True
+
+class SellerPhone(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    mobile = models.CharField(max_length=13,
+        help_text="Please Enter With Country Code, For Whatsapp notification make sure You have whatsapp Account"
+    )
+
+    def __str__(self):
+        return str(self.mobile)
+
+
 class Category(models.Model):
     name = models.CharField(max_length=150)
     img = models.ImageField(upload_to="category_images/", blank=True, null=True)
